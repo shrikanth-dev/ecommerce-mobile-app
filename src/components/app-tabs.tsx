@@ -1,32 +1,23 @@
-import { NativeTabs } from 'expo-router/native-tabs';
-import { useColorScheme } from 'react-native';
-
-import { Colors } from '@/constants/theme';
+import { View, Text } from 'react-native';
 
 export default function AppTabs() {
-  const scheme = useColorScheme();
-  const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
-
   return (
-    <NativeTabs
-      backgroundColor={colors.background}
-      indicatorColor={colors.backgroundElement}
-      labelStyle={{ selected: { color: colors.text } }}>
-      <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/home.png')}
-          renderingMode="template"
-        />
-      </NativeTabs.Trigger>
+    <View className="flex-1 items-center justify-center bg-gray-100 px-6">
+      <View className="w-full rounded-2xl bg-white p-6 shadow-md">
+        <Text className="text-2xl font-bold text-primary">
+          One Stop Shop
+        </Text>
 
-      <NativeTabs.Trigger name="explore">
-        <NativeTabs.Trigger.Label>Explore</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/explore.png')}
-          renderingMode="template"
-        />
-      </NativeTabs.Trigger>
-    </NativeTabs>
+        <Text className="mt-2 text-base text-muted">
+          NativeWind is working!
+        </Text>
+
+        <View className="mt-6 rounded-xl bg-primary px-5 py-3">
+          <Text className="text-center font-semibold text-white">
+            Test Successful
+          </Text>
+        </View>
+      </View>
+    </View>
   );
 }
